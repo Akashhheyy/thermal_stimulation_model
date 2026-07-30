@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: Building Energy and HVAC Digital Twin
+message: If you use this software, cite this repository and the scientific methods and measured datasets used in your adaptation.
+type: software
+version: 0.1.0
+date-released: 2026-07-30
+license: MIT
+repository-code: https://github.com/vicena-ai/building-energy-hvac-digital-twin
+url: https://github.com/vicena-ai/building-energy-hvac-digital-twin
+keywords:
+  - building energy
+  - HVAC
+  - digital twin
+  - thermal model
+  - calibration

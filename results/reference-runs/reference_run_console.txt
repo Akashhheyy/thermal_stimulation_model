@@ -1,0 +1,54 @@
+baseline_predictions.csv b5e7584d4e40477efea86fd75884c7cbaa4c6b7168f35f86762d7b8c608927c8
+case_metrics.csv 8177d3e855befa5a16be9425eb2ce5ce8736d4429958864f726add6e5f4973f8
+reference_run_summary.json c6f4ba4ee43399f9ef00e439da54b61ecba9cdee16753d8d75eccbdcdda3f775
+{
+  "project": "building-energy-hvac-digital-twin",
+  "project_url": "https://github.com/vicena-labs/building-energy-hvac-digital-twin",
+  "scientific_status": "Level 0 executable synthetic reference model",
+  "simulator": "building_hvac_twin 1R1C explicit Euler",
+  "package_version": "0.1.0",
+  "python": "3.12.10",
+  "baseline": {
+    "rows": 24,
+    "seed": 42,
+    "interval_hours": 1.0,
+    "energy_kwh": 32.176569852204565,
+    "heating_kwh_thermal": 69.5297095566137,
+    "cooling_kwh_thermal": 0.0,
+    "mean_indoor_temp_c": 19.174110193390515,
+    "occupied_comfort_degree_hours": 5.707435252714269
+  },
+  "parameter_response": {
+    "changed_parameter": "ua_kw_per_k",
+    "baseline_value_kw_per_k": 0.42,
+    "changed_value_kw_per_k": 0.525,
+    "baseline_energy_kwh": 32.176569852204565,
+    "changed_energy_kwh": 36.72163833271514,
+    "energy_change_percent": 14.125397770449943,
+    "acceptance": "PASS"
+  },
+  "analytical_convergence": {
+    "analytical_limit": "Tin(t)=Tout+(Tin0-Tout)*exp(-UA*t/C)",
+    "ua_kw_per_k": 1.0,
+    "capacitance_kwh_per_k": 10.0,
+    "duration_hours": 12,
+    "coarse_dt_hours": 1.0,
+    "coarse_max_abs_error_c": 0.3840200214288476,
+    "fine_dt_hours": 0.25,
+    "fine_max_abs_error_c": 0.09294002567123272,
+    "error_reduction_factor": 4.131912151469434,
+    "acceptance": "PASS"
+  },
+  "invalid_input_gate": {
+    "case": "missing required energy_kwh column",
+    "errors": [
+      "Missing columns: energy_kwh"
+    ],
+    "acceptance": "PASS"
+  },
+  "remote_compute": {
+    "submitted": false,
+    "reason": "No registered CFD workflow is scientifically applicable to this lumped single-zone 1R1C model. Local deterministic evidence is the correct route."
+  },
+  "runtime_seconds": 0.01888457126915455
+}

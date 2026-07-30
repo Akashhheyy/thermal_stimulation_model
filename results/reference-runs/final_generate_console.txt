@@ -1,0 +1,17 @@
+{
+  "rows": 720,
+  "output": "datasets/example/building_timeseries.csv",
+  "synthetic_truth": {
+    "ua_kw_per_k": 0.48,
+    "capacitance_kwh_per_k": 22,
+    "internal_gain_kw_per_person": 0.1,
+    "solar_gain_factor_kw_per_wm2": 0.0022,
+    "heating_cop": 3.2,
+    "cooling_cop": 3.6,
+    "fan_power_kw": 0.45,
+    "max_heating_kw": 18.0,
+    "max_cooling_kw": 18.0,
+    "deadband_c": 0.5,
+    "base_power_kw": 0.3
+  }
+}

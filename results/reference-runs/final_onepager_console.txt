@@ -1,0 +1,6 @@
+24-hour baseline energy, kWh: 32.176569852204565
+UA response, percent: 14.125397770449943
+fine analytical error, degC: 0.09294002567123272
+held-out synthetic temperature RMSE, degC: 0.442264546035537
+Saved: /root/sessions/469_open-source-building-energy-digital-twin/building-energy-hvac-digital-twin/Building_Energy_HVAC_Digital_Twin_OnePager.pdf
+Saved: /root/sessions/469_open-source-building-energy-digital-twin/building-energy-hvac-digital-twin/assets/building-energy-hvac-digital-twin-onepager.png

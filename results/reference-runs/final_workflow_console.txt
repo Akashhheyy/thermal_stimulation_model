@@ -1,0 +1,139 @@
+{
+  "scientific_status": "Level 0 executable synthetic reference, not production validated",
+  "split": {
+    "train_rows": 503,
+    "validation_rows": 217,
+    "train_fraction": 0.7
+  },
+  "parameters": {
+    "ua_kw_per_k": 0.44925429928037636,
+    "capacitance_kwh_per_k": 18.03464833259154,
+    "internal_gain_kw_per_person": 0.0993167555960788,
+    "solar_gain_factor_kw_per_wm2": 0.0016887896143990922,
+    "heating_cop": 3.0041118633731068,
+    "cooling_cop": 3.4,
+    "fan_power_kw": 0.45,
+    "max_heating_kw": 18.0,
+    "max_cooling_kw": 18.0,
+    "deadband_c": 0.5,
+    "base_power_kw": 0.3
+  },
+  "calibration": {
+    "success": true,
+    "cost": 406.5458354790473,
+    "message": "`xtol` termination condition is satisfied.",
+    "parameter_uncertainty": {
+      "ua_kw_per_k": {
+        "estimate": 0.44925429928037636,
+        "standard_error": 5.327350483306537e-05,
+        "approx_95_percent": [
+          0.44914988321090354,
+          0.44935871534984917
+        ]
+      },
+      "capacitance_kwh_per_k": {
+        "estimate": 18.03464833259154,
+        "standard_error": 0.0009607677055405461,
+        "approx_95_percent": [
+          18.03276522788868,
+          18.0365314372944
+        ]
+      },
+      "internal_gain_kw_per_person": {
+        "estimate": 0.0993167555960788,
+        "standard_error": 0.012407972561021885,
+        "approx_95_percent": [
+          0.0749971293764759,
+          0.1236363818156817
+        ]
+      },
+      "solar_gain_factor_kw_per_wm2": {
+        "estimate": 0.0016887896143990922,
+        "standard_error": 0.0002909849785581268,
+        "approx_95_percent": [
+          0.0011184590564251636,
+          0.0022591201723730207
+        ]
+      },
+      "heating_cop": {
+        "estimate": 3.0041118633731068,
+        "standard_error": 0.025665263344796487,
+        "approx_95_percent": [
+          2.9538079472173058,
+          3.0544157795289077
+        ]
+      },
+      "cooling_cop": {
+        "estimate": 3.4,
+        "standard_error": 0.0,
+        "approx_95_percent": [
+          3.4,
+          3.4
+        ]
+      }
+    }
+  },
+  "train_metrics": {
+    "indoor_temperature": {
+      "n": 503,
+      "mae": 0.3946966267951441,
+      "rmse": 0.47857686106327374,
+      "bias": -0.09241731571699083,
+      "cvrmse_percent": 2.7884034163687836,
+      "nmbe_percent": -0.5384647270750916
+    },
+    "energy": {
+      "n": 503,
+      "mae": 0.14727793791316043,
+      "rmse": 0.5889500452838057,
+      "bias": -0.011036490678209918,
+      "cvrmse_percent": 43.129617289609406,
+      "nmbe_percent": -0.8082173063458359
+    }
+  },
+  "validation_metrics": {
+    "indoor_temperature": {
+      "n": 217,
+      "mae": 0.355346616091695,
+      "rmse": 0.442264546035537,
+      "bias": -0.12484757582453901,
+      "cvrmse_percent": 2.5246322682966618,
+      "nmbe_percent": -0.7126825366641956
+    },
+    "energy": {
+      "n": 217,
+      "mae": 0.1792731679007773,
+      "rmse": 0.702123532905396,
+      "bias": -0.0033827451168778155,
+      "cvrmse_percent": 50.80870944272045,
+      "nmbe_percent": -0.24479013408226624
+    }
+  },
+  "residual_diagnostics": {
+    "temperature": {
+      "mean": -0.12484757582453901,
+      "std": 0.4252580343782028,
+      "p05": -0.7340209513636005,
+      "p95": 0.7164955787120542,
+      "lag1_autocorrelation": 0.7901641297059571
+    },
+    "energy": {
+      "mean": -0.0033827451168778155,
+      "std": 0.703738774370772,
+      "p05": -0.06632111234843992,
+      "p95": 0.4005553131070938,
+      "lag1_autocorrelation": 0.24256822036674547
+    }
+  },
+  "optimization": {
+    "constraint_degree_hours": 12.0,
+    "best": {
+      "heating_setpoint_c": 18.0,
+      "cooling_setpoint_c": 23.0,
+      "energy_kwh": 235.90860410805922,
+      "cost": 37.68129061620888,
+      "comfort_degree_hours": 55.381854910553905,
+      "constraint_feasible": false
+    }
+  }
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vicena-labs.github.io/building-energy-hvac-digital-twin/sitemap.xml

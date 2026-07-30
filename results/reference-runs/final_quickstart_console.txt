@@ -1,0 +1,2 @@
+Held-out temperature RMSE, degC: 0.442
+Held-out energy CVRMSE, percent: 50.81

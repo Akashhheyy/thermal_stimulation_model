@@ -5,8 +5,8 @@ type: software
 version: 0.1.0
 date-released: 2026-07-30
 license: MIT
-repository-code: https://github.com/vicena-ai/building-energy-hvac-digital-twin
-url: https://github.com/vicena-ai/building-energy-hvac-digital-twin
+repository-code: https://github.com/vicena-labs/building-energy-hvac-digital-twin
+url: https://github.com/vicena-labs/building-energy-hvac-digital-twin
 keywords:
   - building energy
   - HVAC

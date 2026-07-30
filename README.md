@@ -1,4 +1,4 @@
-<p align="center"><a href="https://vicena.ai"><strong>Vicena</strong></a></p>
+<p align="center"><a href="https://vicena.ai"><img src="assets/vicena-logo.png" alt="Vicena logo" width="120"></a></p>
 <p align="center"><strong>Built with Vicena</strong><br>Vicena is a scientific research workspace that combines AI-assisted research, durable project files, Jupyter notebooks, reproducible computation, literature tools, and protected remote scientific compute in one environment.</p>
 
 # Building Energy and HVAC Digital Twin
@@ -35,7 +35,7 @@ Model ladder:
 Supported: Python 3.10 to 3.12 on Linux, macOS, and Windows.
 
 ```bash
-git clone https://github.com/vicena-ai/building-energy-hvac-digital-twin.git
+git clone https://github.com/vicena-labs/building-energy-hvac-digital-twin.git
 cd building-energy-hvac-digital-twin
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
@@ -49,7 +49,7 @@ hvac-twin validate-data datasets/example/building_timeseries.csv
 python examples/quickstart.py
 ```
 
-Expected bundled result: about 0.44 degC held-out indoor-temperature RMSE. This is a synthetic reference metric.
+Completed reference answer: the 24-hour synthetic baseline uses **32.18 kWh**. Increasing envelope conductance by 25 percent increases electricity use by **14.13 percent**. The fine-step analytical free-decay check has **0.093 degC** maximum error, and the 30-day synthetic held-out temperature RMSE is **0.442 degC**. These are Level 0 synthetic reference results. See [RUNS.md](RUNS.md).
 
 ## 10-minute quickstart
 
@@ -78,6 +78,7 @@ See [data contract](docs/data-contract.md) before adaptation.
 - `notebooks/02_calibration.ipynb`
 - `notebooks/03_validation.ipynb`
 - `notebooks/04_optimization.ipynb`
+- `notebooks/building-energy-hvac-digital-twin-onepager.ipynb`
 
 ## Documentation
 
@@ -87,7 +88,13 @@ See [data contract](docs/data-contract.md) before adaptation.
 - [Validation guide](docs/validation-guide.md)
 - [Limitations](docs/limitations.md)
 - [API overview](docs/api/README.md)
+- [Reference-run evidence](RUNS.md)
+- [Static project page](docs/index.html)
 - [Agent playbook](AGENT_PLAYBOOK.md)
+
+## Executed reference evidence
+
+`python scripts/run_reference_cases.py` preserves a smallest meaningful baseline, a 25 percent envelope-UA response case, an analytical time-step convergence check, and an intentional invalid-input rejection under `results/reference-runs/`. No remote CFD job was submitted because the registered cavity and airfoil workflows are not scientifically applicable to this lumped 1R1C model.
 
 ## Tests
 
@@ -123,18 +130,18 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Contributions must preserve units, split
 ## Use this repository with an AI agent
 
 ```text
-Clone https://github.com/vicena-ai/building-energy-hvac-digital-twin.git. Read AGENTS.md, AGENT_PLAYBOOK.md, and the repository skill under .agents/skills/. Run the documented smoke test and baseline example without changing the model. Summarize what is implemented, what is synthetic, what has been validated, and what data are required to adapt the twin. Then ask me for the dataset or engineering objective before making scientific changes.
+Clone https://github.com/vicena-labs/building-energy-hvac-digital-twin.git. Read AGENTS.md, AGENT_PLAYBOOK.md, and the repository skill under .agents/skills/. Run the documented smoke test and baseline example without changing the model. Summarize what is implemented, what is synthetic, what has been validated, and what data are required to adapt the twin. Then ask me for the dataset or engineering objective before making scientific changes.
 ```
 
 Detailed adaptation prompt:
 
 ```text
-Clone https://github.com/vicena-ai/building-energy-hvac-digital-twin.git and treat it as an existing scientific software project. Read AGENTS.md, AGENT_PLAYBOOK.md, the repository skill, data contract, model card, and validation guide. Verify the environment, run the tests, and reproduce the baseline output first. Validate my uploaded data against the schema without guessing missing units, labels, component properties, acquisition settings, timezone, or experimental conditions. Create a new project or case study rather than overwriting the reference example. Calibrate only on the declared calibration split, evaluate on held-out data, report uncertainty and limitations, and preserve reproducibility. Do not call the result a production digital twin unless the validation criteria are satisfied.
+Clone https://github.com/vicena-labs/building-energy-hvac-digital-twin.git and treat it as an existing scientific software project. Read AGENTS.md, AGENT_PLAYBOOK.md, the repository skill, data contract, model card, and validation guide. Verify the environment, run the tests, and reproduce the baseline output first. Validate my uploaded data against the schema without guessing missing units, labels, component properties, acquisition settings, timezone, or experimental conditions. Create a new project or case study rather than overwriting the reference example. Calibrate only on the declared calibration split, evaluate on held-out data, report uncertainty and limitations, and preserve reproducibility. Do not call the result a production digital twin unless the validation criteria are satisfied.
 ```
 
 ## Using this repository with Vicena
 
-Open [Vicena.ai](https://vicena.ai), paste `https://github.com/vicena-ai/building-energy-hvac-digital-twin.git`, and ask Vicena to clone it, read `AGENTS.md` and the repository skill, run tests, and summarize the scientific validation boundary before adapting the model.
+Open [Vicena.ai](https://vicena.ai), paste `https://github.com/vicena-labs/building-energy-hvac-digital-twin.git`, and ask Vicena to clone it, read `AGENTS.md` and the repository skill, run tests, and summarize the scientific validation boundary before adapting the model.
 
 ## License
 

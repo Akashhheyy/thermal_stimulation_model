@@ -1,0 +1,206 @@
+{
+  "scientific_status": "Supplemental measured sensor data quality audit, not model validation",
+  "dataset": {
+    "name": "D2EPC Case Study 1 CERTH SmartHouse",
+    "doi": "10.5281/zenodo.8420122",
+    "raw_sha256": "d8587feb297bf79ef4cea4bb1f597ccbb22b8cdf062f07f4dc87e9a936a2b98b"
+  },
+  "findings": [
+    "Sensor time coverage and device semantics require curated alignment before thermal calibration.",
+    "One temperature file contains two records labeled Lux, so unit validation must quarantine them.",
+    "No indoor-temperature validation claim is made from D2EPC in this release."
+  ],
+  "files": [
+    {
+      "file": "7f3da9a1-cfaf-472e-b703-8a81775a5ac1_TEMPERATURESENSOR.json",
+      "rows": 49487,
+      "start": "2022-05-08 09:18:00",
+      "end": "2023-10-09 06:43:09",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "C": 49485,
+        "Lux": 2
+      }
+    },
+    {
+      "file": "b1fa31e1-3658-466a-ba09-1a1fa4b954d0_HUMIDITYSENSOR.json",
+      "rows": 12322,
+      "start": "2023-01-23 14:20:44",
+      "end": "2023-10-09 06:33:45",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "%": 12322
+      }
+    },
+    {
+      "file": "cc6f8b63-e52e-4fc4-87ce-c4ca6b37364a_ENERGYMETER.json",
+      "rows": 48308,
+      "start": "2021-04-07 01:00:00",
+      "end": "2023-10-09 06:30:00",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "kWh": 48308
+      }
+    },
+    {
+      "file": "7f3da9a1-cfaf-472e-b703-8a81775a5ac1_HUMIDITYSENSOR.json",
+      "rows": 49251,
+      "start": "2023-01-23 14:30:23",
+      "end": "2023-10-09 06:43:09",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "%": 49251
+      }
+    },
+    {
+      "file": "b1fa31e1-3658-466a-ba09-1a1fa4b954d0_MOVEMENTSENSOR.json",
+      "rows": 1997,
+      "start": "2023-01-23 13:23:14",
+      "end": "2023-10-06 15:24:58",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "": 1997
+      }
+    },
+    {
+      "file": "7f3da9a1-cfaf-472e-b703-8a81775a5ac1_PM25SENSOR.json",
+      "rows": 33354,
+      "start": "2023-04-11 00:04:20",
+      "end": "2023-10-09 06:43:08",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "\u03bcg/m3": 33354
+      }
+    },
+    {
+      "file": "7f3da9a1-cfaf-472e-b703-8a81775a5ac1_MOVEMENTSENSOR.json",
+      "rows": 49760,
+      "start": "2023-01-23 14:30:23",
+      "end": "2023-10-09 06:43:53",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "": 49760
+      }
+    },
+    {
+      "file": "7f3da9a1-cfaf-472e-b703-8a81775a5ac1_SMOKESENSOR.json",
+      "rows": 49368,
+      "start": "2023-01-23 14:30:23",
+      "end": "2023-10-09 06:43:08",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "": 49368
+      }
+    },
+    {
+      "file": "cd0891aa-414b-4774-ab30-d4820da693a4_ENERGYMETER.json",
+      "rows": 48255,
+      "start": "2022-01-01 00:00:00",
+      "end": "2023-10-09 06:30:00",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "kWh": 48255
+      }
+    },
+    {
+      "file": "7f3da9a1-cfaf-472e-b703-8a81775a5ac1_TVOCSSENSOR.json",
+      "rows": 32628,
+      "start": "2023-04-11 00:04:20",
+      "end": "2023-10-09 06:43:09",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "ppm": 32628
+      }
+    },
+    {
+      "file": "7f3da9a1-cfaf-472e-b703-8a81775a5ac1_SOUNDSENSOR.json",
+      "rows": 48078,
+      "start": "2023-01-23 14:26:23",
+      "end": "2023-10-09 06:39:09",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "dbA": 48078
+      }
+    },
+    {
+      "file": "7f3da9a1-cfaf-472e-b703-8a81775a5ac1_LIGHTSENSOR.json",
+      "rows": 48631,
+      "start": "2023-01-23 14:26:23",
+      "end": "2023-10-09 06:39:09",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "Lux": 48539,
+        "lux": 92
+      }
+    },
+    {
+      "file": "b1fa31e1-3658-466a-ba09-1a1fa4b954d0_TEMPERATURESENSOR.json",
+      "rows": 12260,
+      "start": "2023-01-23 14:20:44",
+      "end": "2023-10-09 06:33:44",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "C": 12260
+      }
+    },
+    {
+      "file": "7f3da9a1-cfaf-472e-b703-8a81775a5ac1_CO2SENSOR.json",
+      "rows": 50011,
+      "start": "2022-02-11 00:06:44",
+      "end": "2023-10-09 06:43:40",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "ppm": 49977,
+        "": 34
+      }
+    },
+    {
+      "file": "1aa752e1-2797-4d10-b5fa-bbbaf0402927_ENERGYMETER.json",
+      "rows": 45559,
+      "start": "2022-01-01 00:00:00",
+      "end": "2023-10-09 06:30:00",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "kWh": 45559
+      }
+    },
+    {
+      "file": "1dcc86c8-1593-4b60-9e4a-513ddeb6f1d4_ENERGYMETER.json",
+      "rows": 44016,
+      "start": "2022-05-25 21:00:00",
+      "end": "2023-10-09 06:45:00",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "kWh": 44016
+      }
+    },
+    {
+      "file": "b1fa31e1-3658-466a-ba09-1a1fa4b954d0_LIGHTSENSOR.json",
+      "rows": 12524,
+      "start": "2023-01-23 14:20:48",
+      "end": "2023-10-09 06:33:50",
+      "invalid_timestamps": 0,
+      "missing_values": 0,
+      "units": {
+        "Lux": 12455,
+        "lux": 69
+      }
+    }
+  ]
+}

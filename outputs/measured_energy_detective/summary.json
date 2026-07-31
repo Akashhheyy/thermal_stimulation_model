@@ -1,0 +1,671 @@
+{
+  "scientific_status": "Measured-data Level 1 validation for hourly HVAC electricity prediction only",
+  "prediction_task": "One-week-ahead HVAC electricity prediction using weather, calendar, and the value from 168 hours earlier",
+  "claim_boundary": "Does not validate indoor temperature, comfort, equipment physics, causal control savings, or new buildings without target history",
+  "dataset": {
+    "name": "EnergyDetective 2020 dataset v2",
+    "doi": "10.5281/zenodo.6590976",
+    "raw_sha256": "ae43c6fb205fb9442ab7ac8da7156afdf91767e06ed4a3252a2fa94c662c2fde"
+  },
+  "split": {
+    "train_end": "2016-06-30 23:00:00",
+    "calibration_end": "2016-12-31 23:00:00",
+    "test_start": "2017-01-01 00:00:00"
+  },
+  "quality": {
+    "time_start": "2015-01-01 00:00:00",
+    "time_end": "2017-12-31 23:00:00",
+    "expected_hours_per_building": 26304,
+    "buildings": [
+      {
+        "building_id": 0,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 84
+      },
+      {
+        "building_id": 1,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 2,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 3,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 4,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 5,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 6,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 7,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 8,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 9,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 10,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 11,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 1
+      },
+      {
+        "building_id": 12,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 13,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 14,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 15,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 16,
+        "rows": 24007,
+        "coverage_percent": 91.26748783454988,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 17,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 18,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      },
+      {
+        "building_id": 19,
+        "rows": 26280,
+        "coverage_percent": 99.9087591240876,
+        "duplicate_timestamps": 0,
+        "missing_hvac": 0,
+        "negative_hvac": 0
+      }
+    ]
+  },
+  "aggregate": {
+    "buildings": 20,
+    "median_model_cvrmse_percent": 76.63421113294753,
+    "median_persistence_cvrmse_percent": 89.18455783706213,
+    "model_better_than_persistence_count": 18,
+    "median_interval_coverage": 0.9516552511415526
+  },
+  "per_building": [
+    {
+      "building_id": 0,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 184.79178349239362,
+        "rmse_kwh": 253.42065861131948,
+        "cvrmse_percent": 64.93760969320505,
+        "nmbe_percent": 2.6203938444460158,
+        "r2": 0.7215102905506575
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 148.93665639269406,
+        "rmse_kwh": 261.99826573616036,
+        "cvrmse_percent": 67.13557297933507,
+        "nmbe_percent": 0.2659321908205509,
+        "r2": 0.7023389874975033
+      },
+      "absolute_residual_95_kwh": 545.0618290122028,
+      "empirical_interval_coverage": 0.9517123287671233
+    },
+    {
+      "building_id": 1,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 30.52961912198371,
+        "rmse_kwh": 53.15522970233283,
+        "cvrmse_percent": 50.62882035697308,
+        "nmbe_percent": -2.4881134659191324,
+        "r2": 0.7901802481354203
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 24.217877853881276,
+        "rmse_kwh": 59.99452035489704,
+        "cvrmse_percent": 57.143047080418164,
+        "nmbe_percent": 0.5186868415703709,
+        "r2": 0.7327131814103593
+      },
+      "absolute_residual_95_kwh": 145.98947330764088,
+      "empirical_interval_coverage": 0.9704337899543379
+    },
+    {
+      "building_id": 2,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 73.19140626030993,
+        "rmse_kwh": 142.26973987560882,
+        "cvrmse_percent": 91.59299034011306,
+        "nmbe_percent": 12.505618399139985,
+        "r2": 0.8545467402984495
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 54.69038698630138,
+        "rmse_kwh": 156.88671949620473,
+        "cvrmse_percent": 101.00337426547512,
+        "nmbe_percent": 0.028832013522699425,
+        "r2": 0.8231232508772557
+      },
+      "absolute_residual_95_kwh": 479.5325131662887,
+      "empirical_interval_coverage": 0.9786529680365297
+    },
+    {
+      "building_id": 3,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 58.60606575311462,
+        "rmse_kwh": 84.52080724701871,
+        "cvrmse_percent": 50.124158220785496,
+        "nmbe_percent": 5.646702216324679,
+        "r2": 0.7824496576584241
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 60.0597602739726,
+        "rmse_kwh": 108.73389610130718,
+        "cvrmse_percent": 64.48347087144765,
+        "nmbe_percent": 0.6236146465455118,
+        "r2": 0.6399503459630529
+      },
+      "absolute_residual_95_kwh": 150.35393712891562,
+      "empirical_interval_coverage": 0.9383561643835616
+    },
+    {
+      "building_id": 4,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 24.556553259497395,
+        "rmse_kwh": 38.37102446153454,
+        "cvrmse_percent": 79.9861559232231,
+        "nmbe_percent": 6.019760616304623,
+        "r2": 0.7980678757376343
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 16.385479452054792,
+        "rmse_kwh": 43.506550571181116,
+        "cvrmse_percent": 90.69139504358476,
+        "nmbe_percent": 0.5767528792907136,
+        "r2": 0.7403980634006317
+      },
+      "absolute_residual_95_kwh": 85.40005695209962,
+      "empirical_interval_coverage": 0.9535388127853881
+    },
+    {
+      "building_id": 5,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 95.30271670970185,
+        "rmse_kwh": 163.3041207212621,
+        "cvrmse_percent": 53.46280718624177,
+        "nmbe_percent": -1.4656516435865408,
+        "r2": 0.6953308990936884
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 102.38310616438356,
+        "rmse_kwh": 201.01701467164418,
+        "cvrmse_percent": 65.80932464580975,
+        "nmbe_percent": 0.1511708173242917,
+        "r2": 0.5383639018622979
+      },
+      "absolute_residual_95_kwh": 274.50241949259714,
+      "empirical_interval_coverage": 0.9432648401826484
+    },
+    {
+      "building_id": 6,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 52.25119243129338,
+        "rmse_kwh": 81.58288019910606,
+        "cvrmse_percent": 82.87516513712788,
+        "nmbe_percent": -2.1120661401365557,
+        "r2": 0.7495730545082291
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 39.56486529680365,
+        "rmse_kwh": 91.29147189623868,
+        "cvrmse_percent": 92.73754236854155,
+        "nmbe_percent": 0.4622350988078493,
+        "r2": 0.6864235726469734
+      },
+      "absolute_residual_95_kwh": 154.4774992573112,
+      "empirical_interval_coverage": 0.9345890410958904
+    },
+    {
+      "building_id": 7,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 69.36134166225908,
+        "rmse_kwh": 110.63947403786186,
+        "cvrmse_percent": 74.01757469460111,
+        "nmbe_percent": 6.921813895049862,
+        "r2": 0.7968563628156571
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 60.5988105022831,
+        "rmse_kwh": 131.7817529850675,
+        "cvrmse_percent": 88.16171470247356,
+        "nmbe_percent": 0.21583429875354718,
+        "r2": 0.7118002633980822
+      },
+      "absolute_residual_95_kwh": 244.01811403369334,
+      "empirical_interval_coverage": 0.9503424657534246
+    },
+    {
+      "building_id": 8,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 21.7512702449975,
+        "rmse_kwh": 30.899728757001462,
+        "cvrmse_percent": 57.1667683280628,
+        "nmbe_percent": 13.594443905739197,
+        "r2": 0.8363821912305999
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 19.66085616438356,
+        "rmse_kwh": 35.81176966869486,
+        "cvrmse_percent": 66.25440489034544,
+        "nmbe_percent": 0.6876275344237753,
+        "r2": 0.7802277760352041
+      },
+      "absolute_residual_95_kwh": 65.16778798348255,
+      "empirical_interval_coverage": 0.941324200913242
+    },
+    {
+      "building_id": 9,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 43.66950092874914,
+        "rmse_kwh": 64.34822544998451,
+        "cvrmse_percent": 51.804549726093335,
+        "nmbe_percent": -1.034164891026149,
+        "r2": 0.8573243846152786
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 47.54736757990867,
+        "rmse_kwh": 85.28164439990888,
+        "cvrmse_percent": 68.65732748872801,
+        "nmbe_percent": -0.19173246409273753,
+        "r2": 0.7493961512358986
+      },
+      "absolute_residual_95_kwh": 150.24526937937387,
+      "empirical_interval_coverage": 0.9518264840182649
+    },
+    {
+      "building_id": 10,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 135.5337686856998,
+        "rmse_kwh": 230.9269837480337,
+        "cvrmse_percent": 118.18893754349699,
+        "nmbe_percent": 3.86431169936185,
+        "r2": 0.6157310285145958
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 100.90454223744291,
+        "rmse_kwh": 262.513096098911,
+        "cvrmse_percent": 134.3547792276934,
+        "nmbe_percent": 0.33186925381898,
+        "r2": 0.5034215139849234
+      },
+      "absolute_residual_95_kwh": 329.8525395700347,
+      "empirical_interval_coverage": 0.9108447488584475
+    },
+    {
+      "building_id": 11,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 350.55756341851844,
+        "rmse_kwh": 5890.259483956406,
+        "cvrmse_percent": 1966.7695703458178,
+        "nmbe_percent": 2.5248486974316666,
+        "r2": -0.21333925973279166
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 332.7478367579909,
+        "rmse_kwh": 7545.397601895527,
+        "cvrmse_percent": 2519.423539826902,
+        "nmbe_percent": 0.9718611043656161,
+        "r2": -0.9910293184063406
+      },
+      "absolute_residual_95_kwh": 566.4739927829761,
+      "empirical_interval_coverage": 0.8976027397260274
+    },
+    {
+      "building_id": 12,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 76.0343323033803,
+        "rmse_kwh": 124.67433761899896,
+        "cvrmse_percent": 100.89212158245763,
+        "nmbe_percent": 37.36297418740351,
+        "r2": 0.7241648679047421
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 55.08945319634703,
+        "rmse_kwh": 128.22801093944452,
+        "cvrmse_percent": 103.76791501002258,
+        "nmbe_percent": 0.6450691968010385,
+        "r2": 0.7082161489537769
+      },
+      "absolute_residual_95_kwh": 324.7100684828686,
+      "empirical_interval_coverage": 0.9635844748858448
+    },
+    {
+      "building_id": 13,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 2.692670364729174,
+        "rmse_kwh": 3.5382337409366307,
+        "cvrmse_percent": 29.01235929450696,
+        "nmbe_percent": 15.06426635478211,
+        "r2": 0.7325152776509791
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 1.2082100456621008,
+        "rmse_kwh": 2.2183294189454603,
+        "cvrmse_percent": 18.189575604178042,
+        "nmbe_percent": 0.133759504155671,
+        "r2": 0.894857567553558
+      },
+      "absolute_residual_95_kwh": 10.191575050575736,
+      "empirical_interval_coverage": 0.9916666666666667
+    },
+    {
+      "building_id": 14,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 26.57059253637976,
+        "rmse_kwh": 39.857148378619215,
+        "cvrmse_percent": 79.25084757129395,
+        "nmbe_percent": 7.661470286504697,
+        "r2": 0.7088597610364107
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 17.945810502283102,
+        "rmse_kwh": 45.36746136553626,
+        "cvrmse_percent": 90.2074009716507,
+        "nmbe_percent": -0.4991903852123948,
+        "r2": 0.6227938686687782
+      },
+      "absolute_residual_95_kwh": 103.69337583363378,
+      "empirical_interval_coverage": 0.9610730593607306
+    },
+    {
+      "building_id": 15,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 103.00599276007851,
+        "rmse_kwh": 158.75117220677316,
+        "cvrmse_percent": 84.36674795262272,
+        "nmbe_percent": 0.6304810769863061,
+        "r2": 0.7577078585604223
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 76.97285159817352,
+        "rmse_kwh": 171.4139019344484,
+        "cvrmse_percent": 91.09623103281997,
+        "nmbe_percent": 0.5576178318702436,
+        "r2": 0.7175136099299426
+      },
+      "absolute_residual_95_kwh": 417.2159784591911,
+      "empirical_interval_coverage": 0.9644977168949772
+    },
+    {
+      "building_id": 16,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 6487,
+      "model": {
+        "n": 6487,
+        "mae_kwh": 62.354830925105574,
+        "rmse_kwh": 85.33975544919825,
+        "cvrmse_percent": 45.879297233549515,
+        "nmbe_percent": 7.325076194669757,
+        "r2": 0.8557413476105236
+      },
+      "weekly_persistence": {
+        "n": 6487,
+        "mae_kwh": 54.876463696624015,
+        "rmse_kwh": 91.825812355108,
+        "cvrmse_percent": 49.366250425454226,
+        "nmbe_percent": -0.07422746759899224,
+        "r2": 0.8329799378100425
+      },
+      "absolute_residual_95_kwh": 272.38090129062743,
+      "empirical_interval_coverage": 0.9942962848774473
+    },
+    {
+      "building_id": 17,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 73.02724615094851,
+        "rmse_kwh": 119.97252636016347,
+        "cvrmse_percent": 79.79206574354065,
+        "nmbe_percent": 7.766322531027003,
+        "r2": 0.8232587855368009
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 65.22431506849315,
+        "rmse_kwh": 146.2108191939322,
+        "cvrmse_percent": 97.24279092461445,
+        "nmbe_percent": 0.16460122998420978,
+        "r2": 0.7374976188768088
+      },
+      "absolute_residual_95_kwh": 277.3443392642244,
+      "empirical_interval_coverage": 0.9515981735159817
+    },
+    {
+      "building_id": 18,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 34.733842409276654,
+        "rmse_kwh": 46.84809235062215,
+        "cvrmse_percent": 32.16504366310549,
+        "nmbe_percent": -3.5273899019841597,
+        "r2": 0.852490520469757
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 44.84858447488584,
+        "rmse_kwh": 66.33112091265819,
+        "cvrmse_percent": 45.5417348567886,
+        "nmbe_percent": 0.43703747827000283,
+        "r2": 0.704286752204459
+      },
+      "absolute_residual_95_kwh": 95.21396901131581,
+      "empirical_interval_coverage": 0.9474885844748858
+    },
+    {
+      "building_id": 19,
+      "train_rows": 12912,
+      "calibration_rows": 4416,
+      "test_rows": 8760,
+      "model": {
+        "n": 8760,
+        "mae_kwh": 83.0213700860212,
+        "rmse_kwh": 110.17443461644564,
+        "cvrmse_percent": 431.5993482954552,
+        "nmbe_percent": 317.47850234587986,
+        "r2": -6.296045107953651
+      },
+      "weekly_persistence": {
+        "n": 8760,
+        "mae_kwh": 10.572941780821916,
+        "rmse_kwh": 23.8746098447645,
+        "cvrmse_percent": 93.52683393094998,
+        "nmbe_percent": 8.262573101664252,
+        "r2": 0.6573912774118287
+      },
+      "absolute_residual_95_kwh": 138.48067187849085,
+      "empirical_interval_coverage": 0.8095890410958904
+    }
+  ]
+}

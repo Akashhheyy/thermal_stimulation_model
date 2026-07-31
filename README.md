@@ -9,7 +9,7 @@ Open-source, vendor-neutral Python R&D digital twin for transparent building the
 
 [![One-page overview](assets/building-energy-hvac-digital-twin-onepager.png)](Building_Energy_HVAC_Digital_Twin_OnePager.pdf)
 
-## What release 0.1.0 provides
+## What release 0.2.0 provides
 
 - Deterministic synthetic hourly example data and generator.
 - Transparent single-zone 1R1C heat balance with heating and cooling loads, indoor temperature, equipment power, interval energy, cost, and occupied comfort violation.
@@ -19,9 +19,13 @@ Open-source, vendor-neutral Python R&D digital twin for transparent building the
 - One-at-a-time sensitivity and grid-based setpoint optimization under a comfort constraint.
 - CLI, four executable notebooks, JSON schemas, tests, and reproducible one-page visual.
 
+## Measured validation added in release 0.2.0
+
+A separate measured forecasting lane now benchmarks one-week-ahead hourly HVAC electricity on 20 Shanghai office buildings from EnergyDetective 2020. The fixed 2017 test gives median CVRMSE 76.634 percent versus 89.185 percent for weekly persistence, and the model beats persistence for 18 of 20 buildings. This is Level 1 evidence for the forecasting lane only. It does not validate indoor temperature, comfort, equipment physics, or causal savings. See [the measured validation protocol](docs/measured-validation.md).
+
 ## Scientific status
 
-This release is a **Level 0 executable synthetic reference model**. Its bundled metrics validate software behavior against synthetic data, not real building performance. It is not production-ready. A calibrated R&D twin requires measured data with documented units, timezone, interval semantics, sensor provenance, and a held-out period. Production claims require broader measured validation across seasons, operating modes, faults, and relevant buildings.
+The core 1R1C thermal model remains a **Level 0 executable synthetic reference model**. The separate HVAC-electricity forecasting lane has **Level 1 measured-data evidence** under the declared 2015 to 2017 protocol. Neither lane is production-ready. A calibrated R&D twin requires measured data with documented units, timezone, interval semantics, sensor provenance, and a held-out period. Production claims require broader measured validation across seasons, operating modes, faults, and relevant buildings.
 
 Model ladder:
 

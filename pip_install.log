@@ -1,0 +1,78 @@
+Requirement already satisfied: numpy in c:\users\elcot\desktop\building-energy-hvac-digital-twin\.venv\lib\site-packages (2.5.2)
+Collecting pandas
+  Using cached pandas-3.0.5-cp313-cp313-win_amd64.whl.metadata (19 kB)
+Collecting scipy
+  Using cached scipy-1.18.1-cp313-cp313-win_amd64.whl.metadata (61 kB)
+Collecting matplotlib
+  Using cached matplotlib-3.11.1-cp313-cp313-win_amd64.whl.metadata (80 kB)
+Collecting jsonschema
+  Using cached jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+Collecting pillow
+  Using cached pillow-12.3.0-cp313-cp313-win_amd64.whl.metadata (9.3 kB)
+Collecting pytest
+  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting python-dateutil>=2.8.2 (from pandas)
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting tzdata (from pandas)
+  Using cached tzdata-2026.3-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting contourpy>=1.0.1 (from matplotlib)
+  Using cached contourpy-1.3.3-cp313-cp313-win_amd64.whl.metadata (5.5 kB)
+Collecting cycler>=0.10 (from matplotlib)
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.28.2 (from matplotlib)
+  Using cached fonttools-4.64.0-cp313-cp313-win_amd64.whl.metadata (126 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib)
+  Using cached kiwisolver-1.5.1-cp313-cp313-win_amd64.whl.metadata (5.2 kB)
+Collecting packaging>=20.0 (from matplotlib)
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyparsing>=3 (from matplotlib)
+  Using cached pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+Collecting attrs>=22.2.0 (from jsonschema)
+  Using cached attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema)
+  Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema)
+  Using cached referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.25.0 (from jsonschema)
+  Using cached rpds_py-2026.6.3-cp313-cp313-win_amd64.whl.metadata (4.2 kB)
+Collecting colorama>=0.4 (from pytest)
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting iniconfig>=1.0.1 (from pytest)
+  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest)
+  Using cached pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pygments>=2.7.2 (from pytest)
+  Using cached pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas)
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Using cached pandas-3.0.5-cp313-cp313-win_amd64.whl (9.8 MB)
+Downloading scipy-1.18.1-cp313-cp313-win_amd64.whl (36.6 MB)
+   ---------------------------------------- 36.6/36.6 MB 162.5 kB/s  0:05:19
+Downloading matplotlib-3.11.1-cp313-cp313-win_amd64.whl (9.3 MB)
+   ---------------------------------------- 9.3/9.3 MB 75.9 kB/s  0:01:39
+Using cached jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Downloading pillow-12.3.0-cp313-cp313-win_amd64.whl (7.2 MB)
+   ---------------------------------------- 7.2/7.2 MB 158.5 kB/s  0:00:47
+Using cached pytest-9.1.1-py3-none-any.whl (386 kB)
+Using cached pluggy-1.6.0-py3-none-any.whl (20 kB)
+Using cached attrs-26.1.0-py3-none-any.whl (67 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Using cached contourpy-1.3.3-cp313-cp313-win_amd64.whl (226 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Using cached fonttools-4.64.0-cp313-cp313-win_amd64.whl (2.5 MB)
+Using cached iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Using cached kiwisolver-1.5.1-cp313-cp313-win_amd64.whl (70 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ---------------------------------------- 1.3/1.3 MB 67.2 kB/s  0:00:16
+Using cached pyparsing-3.3.2-py3-none-any.whl (122 kB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Using cached referencing-0.37.0-py3-none-any.whl (26 kB)
+Using cached rpds_py-2026.6.3-cp313-cp313-win_amd64.whl (219 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Using cached tzdata-2026.3-py2.py3-none-any.whl (348 kB)
+Installing collected packages: tzdata, six, scipy, rpds-py, pyparsing, pygments, pluggy, pillow, packaging, kiwisolver, iniconfig, fonttools, cycler, contourpy, colorama, attrs, referencing, python-dateutil, pytest, pandas, matplotlib, jsonschema-specifications, jsonschema
+
+Successfully installed attrs-26.1.0 colorama-0.4.6 contourpy-1.3.3 cycler-0.12.1 fonttools-4.64.0 iniconfig-2.3.0 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 kiwisolver-1.5.1 matplotlib-3.11.1 packaging-26.3 pandas-3.0.5 pillow-12.3.0 pluggy-1.6.0 pygments-2.21.0 pyparsing-3.3.2 pytest-9.1.1 python-dateutil-2.9.0.post0 referencing-0.37.0 rpds-py-2026.6.3 scipy-1.18.1 six-1.17.0 tzdata-2026.3
+ferencing-0.37.0 rpds-py-2026.6.3 scipy-1.18.1 six-1.17.0 tzdata-2026.3

@@ -4,7 +4,7 @@
   "scientific_status": "Level 0 executable synthetic reference model",
   "simulator": "building_hvac_twin 1R1C explicit Euler",
   "package_version": "0.1.0",
-  "python": "3.12.10",
+  "python": "3.13.12",
   "baseline": {
     "rows": 24,
     "seed": 42,
@@ -47,5 +47,5 @@
     "submitted": false,
     "reason": "No registered CFD workflow is scientifically applicable to this lumped single-zone 1R1C model. Local deterministic evidence is the correct route."
   },
-  "runtime_seconds": 0.019383585080504417
+  "runtime_seconds": 0.06499249999978929
 }

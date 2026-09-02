@@ -42,7 +42,7 @@ def validate_shelter_config(config) -> list[str]:
     is internally consistent.  Construction-time dataclass validation already
     rejects bad field values, so this covers relationships between fields.
     """
-    from .geometry import CARDINAL_DIRECTIONS, cardinal_direction
+    from .geometry import CARDINAL_DIRECTIONS, build_geometry, cardinal_direction
 
     problems: list[str] = []
     try:

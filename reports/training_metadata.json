@@ -1,0 +1,181 @@
+{
+  "seed": 42,
+  "dataset": {
+    "path": "data\\shelter_ml_dataset.csv",
+    "row_count": 3000,
+    "unique_designs": 300,
+    "weather_scenarios": 10,
+    "provenance": "NASA POWER data are satellite/reanalysis-derived estimates and are not ground measurements."
+  },
+  "features": {
+    "columns": [
+      "wall_material",
+      "window_wall_orientation",
+      "orientation_cardinal",
+      "thermal_mass_material",
+      "length_m",
+      "width_m",
+      "height_m",
+      "floor_area_m2",
+      "volume_m3",
+      "wall_insulation_thickness_m",
+      "roof_insulation_thickness_m",
+      "floor_insulation_thickness_m",
+      "window_area_m2",
+      "window_u_value_w_m2k",
+      "door_area_m2",
+      "window_solar_heat_gain_coefficient",
+      "thermal_mass_heat_capacity_kj_k",
+      "net_wall_area_m2",
+      "mean_outdoor_temperature_c",
+      "minimum_outdoor_temperature_c",
+      "maximum_outdoor_temperature_c",
+      "daily_solar_sum_wh_m2"
+    ],
+    "count": 22
+  },
+  "targets": {
+    "columns": [
+      "percent_time_comfortable",
+      "degree_hours_below_comfort",
+      "degree_hours_above_comfort",
+      "minimum_indoor_temperature_c",
+      "mean_indoor_temperature_c",
+      "indoor_temperature_range_c",
+      "total_heat_loss_kwh",
+      "total_solar_gain_kwh",
+      "thermal_mass_net_kwh"
+    ]
+  },
+  "models": {
+    "linear_regression": {
+      "class": "sklearn.linear_model._base.LinearRegression",
+      "parameters": {
+        "copy_X": true,
+        "fit_intercept": true,
+        "n_jobs": null,
+        "positive": false,
+        "tol": 1e-06
+      }
+    },
+    "random_forest": {
+      "class": "sklearn.ensemble._forest.RandomForestRegressor",
+      "parameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "criterion": "squared_error",
+        "max_depth": null,
+        "max_features": 1.0,
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 1,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 300,
+        "n_jobs": 1,
+        "oob_score": false,
+        "random_state": 42,
+        "verbose": 0,
+        "warm_start": false
+      }
+    },
+    "gradient_boosting": {
+      "class": "sklearn.ensemble._gb.GradientBoostingRegressor",
+      "parameters": {
+        "alpha": 0.9,
+        "ccp_alpha": 0.0,
+        "criterion": "deprecated",
+        "init": null,
+        "learning_rate": 0.05,
+        "loss": "squared_error",
+        "max_depth": 3,
+        "max_features": null,
+        "max_leaf_nodes": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 1,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "n_estimators": 300,
+        "n_iter_no_change": null,
+        "random_state": 42,
+        "subsample": 1.0,
+        "tol": 0.0001,
+        "validation_fraction": 0.1,
+        "verbose": 0,
+        "warm_start": false
+      }
+    }
+  },
+  "xgboost_available": false,
+  "split": {
+    "seed": 42,
+    "method": "grouped by design_id",
+    "unique_designs_total": 300,
+    "fractions": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "splits": [
+      {
+        "split": "train",
+        "rows": 2100,
+        "unique_designs": 210,
+        "weather_scenarios": 10
+      },
+      {
+        "split": "validation",
+        "rows": 450,
+        "unique_designs": 45,
+        "weather_scenarios": 10
+      },
+      {
+        "split": "test",
+        "rows": 450,
+        "unique_designs": 45,
+        "weather_scenarios": 10
+      }
+    ],
+    "leakage_check": "no design_id appears in more than one split"
+  },
+  "train_rows": 2100,
+  "validation_rows": 450,
+  "test_rows": 450,
+  "artifacts": {
+    "model_files": [
+      "models\\regression\\degree_hours_above_comfort__gradient_boosting.joblib",
+      "models\\regression\\degree_hours_above_comfort__linear_regression.joblib",
+      "models\\regression\\degree_hours_above_comfort__random_forest.joblib",
+      "models\\regression\\degree_hours_below_comfort__gradient_boosting.joblib",
+      "models\\regression\\degree_hours_below_comfort__linear_regression.joblib",
+      "models\\regression\\degree_hours_below_comfort__random_forest.joblib",
+      "models\\regression\\indoor_temperature_range_c__gradient_boosting.joblib",
+      "models\\regression\\indoor_temperature_range_c__linear_regression.joblib",
+      "models\\regression\\indoor_temperature_range_c__random_forest.joblib",
+      "models\\regression\\mean_indoor_temperature_c__gradient_boosting.joblib",
+      "models\\regression\\mean_indoor_temperature_c__linear_regression.joblib",
+      "models\\regression\\mean_indoor_temperature_c__random_forest.joblib",
+      "models\\regression\\minimum_indoor_temperature_c__gradient_boosting.joblib",
+      "models\\regression\\minimum_indoor_temperature_c__linear_regression.joblib",
+      "models\\regression\\minimum_indoor_temperature_c__random_forest.joblib",
+      "models\\regression\\percent_time_comfortable__gradient_boosting.joblib",
+      "models\\regression\\percent_time_comfortable__linear_regression.joblib",
+      "models\\regression\\percent_time_comfortable__random_forest.joblib",
+      "models\\regression\\thermal_mass_net_kwh__gradient_boosting.joblib",
+      "models\\regression\\thermal_mass_net_kwh__linear_regression.joblib",
+      "models\\regression\\thermal_mass_net_kwh__random_forest.joblib",
+      "models\\regression\\total_heat_loss_kwh__gradient_boosting.joblib",
+      "models\\regression\\total_heat_loss_kwh__linear_regression.joblib",
+      "models\\regression\\total_heat_loss_kwh__random_forest.joblib",
+      "models\\regression\\total_solar_gain_kwh__gradient_boosting.joblib",
+      "models\\regression\\total_solar_gain_kwh__linear_regression.joblib",
+      "models\\regression\\total_solar_gain_kwh__random_forest.joblib"
+    ],
+    "comparison_csv": "reports\\ml_model_comparison.csv",
+    "feature_importance_csv": "reports\\feature_importance.csv",
+    "predictions_csv": "reports\\ml_predictions_test.csv",
+    "metrics_json": "reports\\ml_metrics.json"
+  }
+}

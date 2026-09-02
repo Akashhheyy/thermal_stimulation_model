@@ -8,3 +8,4 @@ dist/
 .ipynb_checkpoints/
 outputs/*
 !outputs/README.md
+models/

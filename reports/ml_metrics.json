@@ -1,0 +1,560 @@
+{
+  "degree_hours_above_comfort": {
+    "gradient_boosting": {
+      "metrics": {
+        "n": 450,
+        "mae": 13.600126616594778,
+        "rmse": 28.95955214001274,
+        "r2": 0.48557322761744315,
+        "explained_variance": 0.4876664349005845,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "degree_hours_above_comfort",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "linear_regression": {
+      "metrics": {
+        "n": 450,
+        "mae": 22.60752538162283,
+        "rmse": 34.87554989164992,
+        "r2": 0.2539258237624302,
+        "explained_variance": 0.26533020040994204,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "degree_hours_above_comfort",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "random_forest": {
+      "metrics": {
+        "n": 450,
+        "mae": 9.679094746773528,
+        "rmse": 25.028113468258443,
+        "r2": 0.6157657180728422,
+        "explained_variance": 0.6165400256162783,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "degree_hours_above_comfort",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    }
+  },
+  "degree_hours_below_comfort": {
+    "gradient_boosting": {
+      "metrics": {
+        "n": 450,
+        "mae": 28.91682269579939,
+        "rmse": 40.14609622189069,
+        "r2": 0.9519125168877207,
+        "explained_variance": 0.9525905072325866,
+        "mape_percent": 15.068189483961463
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "degree_hours_below_comfort",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "linear_regression": {
+      "metrics": {
+        "n": 450,
+        "mae": 57.280523912933695,
+        "rmse": 74.44223404607209,
+        "r2": 0.834657613994981,
+        "explained_variance": 0.8350272593048899,
+        "mape_percent": 30.717874804986618
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "degree_hours_below_comfort",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "random_forest": {
+      "metrics": {
+        "n": 450,
+        "mae": 24.489621536009615,
+        "rmse": 35.44817613673456,
+        "r2": 0.9625084673768629,
+        "explained_variance": 0.9632367029885123,
+        "mape_percent": 12.534455001681517
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "degree_hours_below_comfort",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    }
+  },
+  "indoor_temperature_range_c": {
+    "gradient_boosting": {
+      "metrics": {
+        "n": 450,
+        "mae": 3.0925985322441045,
+        "rmse": 4.609553496718836,
+        "r2": 0.7971478562033117,
+        "explained_variance": 0.7972456217567824,
+        "mape_percent": 24.110342212924742
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "indoor_temperature_range_c",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "linear_regression": {
+      "metrics": {
+        "n": 450,
+        "mae": 4.471484174665771,
+        "rmse": 6.214826975883195,
+        "r2": 0.6312602414945994,
+        "explained_variance": 0.640156179578806,
+        "mape_percent": 48.831586382592384
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "indoor_temperature_range_c",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "random_forest": {
+      "metrics": {
+        "n": 450,
+        "mae": 2.645942389130261,
+        "rmse": 4.059116656557356,
+        "r2": 0.8427013670314888,
+        "explained_variance": 0.8462200125159953,
+        "mape_percent": 19.692047944856387
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "indoor_temperature_range_c",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    }
+  },
+  "mean_indoor_temperature_c": {
+    "gradient_boosting": {
+      "metrics": {
+        "n": 450,
+        "mae": 1.4527813156788523,
+        "rmse": 1.9464700237441186,
+        "r2": 0.9495359683979077,
+        "explained_variance": 0.9511418049729367,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "mean_indoor_temperature_c",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "linear_regression": {
+      "metrics": {
+        "n": 450,
+        "mae": 2.868088786676914,
+        "rmse": 3.786900918182411,
+        "r2": 0.8089907547956233,
+        "explained_variance": 0.8090011999955449,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "mean_indoor_temperature_c",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "random_forest": {
+      "metrics": {
+        "n": 450,
+        "mae": 1.2548759421574642,
+        "rmse": 1.797343893623134,
+        "r2": 0.9569722273759053,
+        "explained_variance": 0.9590838018183416,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "mean_indoor_temperature_c",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    }
+  },
+  "minimum_indoor_temperature_c": {
+    "gradient_boosting": {
+      "metrics": {
+        "n": 450,
+        "mae": 1.576254789024376,
+        "rmse": 2.0596790114468337,
+        "r2": 0.946196863801272,
+        "explained_variance": 0.947231773379807,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "minimum_indoor_temperature_c",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "linear_regression": {
+      "metrics": {
+        "n": 450,
+        "mae": 2.6450300381138563,
+        "rmse": 3.4444961307516087,
+        "r2": 0.8495265400706817,
+        "explained_variance": 0.8497177447830506,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "minimum_indoor_temperature_c",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "random_forest": {
+      "metrics": {
+        "n": 450,
+        "mae": 1.0870735283665285,
+        "rmse": 1.7125672850245055,
+        "r2": 0.9628033531419476,
+        "explained_variance": 0.9630824897259063,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "minimum_indoor_temperature_c",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    }
+  },
+  "percent_time_comfortable": {
+    "gradient_boosting": {
+      "metrics": {
+        "n": 450,
+        "mae": 5.462893515342048,
+        "rmse": 8.947216307120076,
+        "r2": 0.4987147797204372,
+        "explained_variance": 0.5048540640928967,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "percent_time_comfortable",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": {
+          "low": 0.0,
+          "high": 100.0
+        },
+        "out_of_bounds_count": 92,
+        "clipping_applied": false
+      }
+    },
+    "linear_regression": {
+      "metrics": {
+        "n": 450,
+        "mae": 7.474288840619059,
+        "rmse": 10.451869043820988,
+        "r2": 0.315935669197723,
+        "explained_variance": 0.3193462435345087,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "percent_time_comfortable",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": {
+          "low": 0.0,
+          "high": 100.0
+        },
+        "out_of_bounds_count": 74,
+        "clipping_applied": false
+      }
+    },
+    "random_forest": {
+      "metrics": {
+        "n": 450,
+        "mae": 4.80869341563786,
+        "rmse": 8.951022231686757,
+        "r2": 0.4982882203423751,
+        "explained_variance": 0.5036602864571398,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "percent_time_comfortable",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": {
+          "low": 0.0,
+          "high": 100.0
+        },
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    }
+  },
+  "thermal_mass_net_kwh": {
+    "gradient_boosting": {
+      "metrics": {
+        "n": 450,
+        "mae": 1.605813575311702,
+        "rmse": 2.1948468818248728,
+        "r2": 0.927146138258356,
+        "explained_variance": 0.9276541836014405,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "thermal_mass_net_kwh",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "linear_regression": {
+      "metrics": {
+        "n": 450,
+        "mae": 4.35681431000934,
+        "rmse": 5.9646264900989205,
+        "r2": 0.46196487759497296,
+        "explained_variance": 0.46668322376754734,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "thermal_mass_net_kwh",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "random_forest": {
+      "metrics": {
+        "n": 450,
+        "mae": 1.1412983211705827,
+        "rmse": 1.828914575831749,
+        "r2": 0.9494139273766377,
+        "explained_variance": 0.9494157421569897,
+        "mape_percent": null
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "thermal_mass_net_kwh",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": null,
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    }
+  },
+  "total_heat_loss_kwh": {
+    "gradient_boosting": {
+      "metrics": {
+        "n": 450,
+        "mae": 1.6728864564247476,
+        "rmse": 2.247495711342223,
+        "r2": 0.9236793368058485,
+        "explained_variance": 0.9255392687774652,
+        "mape_percent": 12.751282221172232
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "total_heat_loss_kwh",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": {
+          "low": 0.0,
+          "high": null
+        },
+        "out_of_bounds_count": 3,
+        "clipping_applied": false
+      }
+    },
+    "linear_regression": {
+      "metrics": {
+        "n": 450,
+        "mae": 4.391422894279892,
+        "rmse": 5.887426169509028,
+        "r2": 0.4762846054912889,
+        "explained_variance": 0.4788687866925918,
+        "mape_percent": 35.42488386949394
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "total_heat_loss_kwh",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": {
+          "low": 0.0,
+          "high": null
+        },
+        "out_of_bounds_count": 6,
+        "clipping_applied": false
+      }
+    },
+    "random_forest": {
+      "metrics": {
+        "n": 450,
+        "mae": 1.7245542615171439,
+        "rmse": 2.1947078499036317,
+        "r2": 0.9272223838279257,
+        "explained_variance": 0.9290902739217399,
+        "mape_percent": 13.066583142839841
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "total_heat_loss_kwh",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": {
+          "low": 0.0,
+          "high": null
+        },
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    }
+  },
+  "total_solar_gain_kwh": {
+    "gradient_boosting": {
+      "metrics": {
+        "n": 450,
+        "mae": 0.2786728754039015,
+        "rmse": 0.388769222506714,
+        "r2": 0.9928886902976052,
+        "explained_variance": 0.9933691626123888,
+        "mape_percent": 5.701672088272453
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "total_solar_gain_kwh",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": {
+          "low": 0.0,
+          "high": null
+        },
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    },
+    "linear_regression": {
+      "metrics": {
+        "n": 450,
+        "mae": 1.1320019455623584,
+        "rmse": 1.592041008420649,
+        "r2": 0.8807456193234179,
+        "explained_variance": 0.8831713893810328,
+        "mape_percent": 44.71459869860395
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "total_solar_gain_kwh",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": {
+          "low": 0.0,
+          "high": null
+        },
+        "out_of_bounds_count": 44,
+        "clipping_applied": false
+      }
+    },
+    "random_forest": {
+      "metrics": {
+        "n": 450,
+        "mae": 0.3755536061436434,
+        "rmse": 0.5200283955714151,
+        "r2": 0.9872761084832921,
+        "explained_variance": 0.9876542137243477,
+        "mape_percent": 8.548021722603401
+      },
+      "raw_prediction_non_finite_count": 0,
+      "sanity": {
+        "target": "total_solar_gain_kwh",
+        "n": 450,
+        "non_finite_count": 0,
+        "bounds": {
+          "low": 0.0,
+          "high": null
+        },
+        "out_of_bounds_count": 0,
+        "clipping_applied": false
+      }
+    }
+  }
+}

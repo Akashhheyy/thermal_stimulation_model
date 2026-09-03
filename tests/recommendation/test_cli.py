@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import json
 from typing import Any
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import pandas as pd
 
@@ -77,9 +77,22 @@ def test_recommend_prints_ranking(capsys):
     with patch("building_hvac_twin.recommendation.cli.load_predictors") as mock_load, \
          patch("building_hvac_twin.recommendation.cli.predict_design", return_value=outcomes[0]) as mock_pred, \
          patch("building_hvac_twin.shelter.ml_dataset.generate_designs", return_value=designs) as mock_gen, \
+         patch("building_hvac_twin.recommendation.cli._design_to_config") as mock_config, \
          patch("building_hvac_twin.recommendation.cli.rank_designs") as mock_rank:
         mock_load.return_value = _FakeBundle()
-        mock_rank.return_value = []
+        fake1 = MagicMock()
+        fake1.design_id = "D0001"
+        fake1.rank = 1
+        fake1.recommendation_score = 85.0
+        fake1.components = {"percent_time_comfortable": 0.9}
+        fake1.primary_predictions = outcomes[0].primary_predictions
+        fake2 = MagicMock()
+        fake2.design_id = "D0002"
+        fake2.rank = 2
+        fake2.recommendation_score = 70.0
+        fake2.components = {"percent_time_comfortable": 0.7}
+        fake2.primary_predictions = outcomes[0].primary_predictions
+        mock_rank.return_value = [fake1, fake2]
         code = main(["recommend", "--scenario", "S01_winter", "--count", "2"])
     assert code == 0
     out = json.loads(capsys.readouterr().out)
@@ -96,6 +109,7 @@ def test_compare_prints_json(capsys, tmp_path):
     weather = pd.DataFrame({"outdoor_temperature_c": [-5.0], "solar_radiation_w_m2": [0.0]})
     with patch("building_hvac_twin.recommendation.cli.load_predictors") as mock_load, \
          patch("building_hvac_twin.recommendation.cli.load_scenario_weather", return_value=weather), \
+         patch("building_hvac_twin.shelter.ml_dataset.build_shelter_config") as mock_config, \
          patch("building_hvac_twin.recommendation.cli.compare_prediction_with_physics") as mock_compare:
         mock_load.return_value = _FakeBundle()
         mock_compare.return_value = {"design_id": "D0001", "rows": [], "provenance": "test"}

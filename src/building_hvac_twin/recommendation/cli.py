@@ -159,18 +159,20 @@ def cmd_compare(args: argparse.Namespace) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    args = _parser().parse_args(argv)
     try:
+        args = _parser().parse_args(argv)
         if args.cmd == "predict":
             return cmd_predict(args)
         if args.cmd == "recommend":
             return cmd_recommend(args)
         if args.cmd == "compare":
             return cmd_compare(args)
-        except (ValueError, FileNotFoundError, SystemExit) as exc:
-        code = getattr(exc, "code", None) or 1
+    except SystemExit as exc:
+        code = getattr(exc, "code", None)
         if isinstance(code, int):
             return code
+        return 1
+    except (ValueError, FileNotFoundError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
     raise SystemExit(f"unknown command {args.cmd!r}")

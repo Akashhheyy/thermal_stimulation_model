@@ -13,6 +13,8 @@ from typing import Any, Sequence
 
 import pandas as pd
 
+from building_hvac_twin.shelter import weather
+
 from ..shelter.comparison import design_metrics
 from ..shelter.ml_dataset import (
     fetch_or_load_weather,
@@ -67,7 +69,8 @@ def load_scenario_weather(scenario_id: str) -> pd.DataFrame:
     if scenario is None:
         available = [candidate.scenario_id for candidate in get_weather_scenarios()]
         raise ValueError(f"unknown scenario {scenario_id!r}; available: {available}")
-    return fetch_or_load_weather(scenario, SCENARIO_WEATHER_CACHE_DIR)
+    weather, _ = fetch_or_load_weather(scenario, SCENARIO_WEATHER_CACHE_DIR)
+    return weather
 
 
 def _physics_metrics(

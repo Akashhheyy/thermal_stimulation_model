@@ -47,5 +47,5 @@
     "submitted": false,
     "reason": "No registered CFD workflow is scientifically applicable to this lumped single-zone 1R1C model. Local deterministic evidence is the correct route."
   },
-  "runtime_seconds": 0.047273399999539834
+  "runtime_seconds": 0.05800460000000385
 }

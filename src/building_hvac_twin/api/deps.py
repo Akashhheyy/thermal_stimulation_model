@@ -54,6 +54,45 @@ def get_metadata(request: Request) -> dict:
     return metadata
 
 
+def get_repositories(request: Request):
+    """Return the repository bundle or raise 503 when the database is absent.
+
+    Database-backed endpoints answer with this clear error when MongoDB is
+    not configured or was unreachable at startup; they never fall back to
+    fabricating catalog data.
+    """
+    repositories = getattr(request.app.state, "repositories", None)
+    if repositories is None:
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "MongoDB is not configured; set MONGODB_URI and seed the "
+                "database with `python -m building_hvac_twin.database.seed` "
+                "(see .env.example and docs/database.md)"
+            ),
+        )
+    return repositories
+
+
+def persist_result(state, method: str, document) -> "PersistenceInfo":
+    """Best-effort persistence; the computation result is never affected.
+
+    ``method`` is the name of a ``RepositoryBundle`` save helper such as
+    ``save_prediction``.  When no database is configured the outcome is an
+    explicit ``PersistenceInfo(saved=False)`` rather than a silent skip.
+    """
+    from .schemas import PersistenceInfo
+
+    repositories = getattr(state, "repositories", None)
+    if repositories is None:
+        return PersistenceInfo(
+            saved=False,
+            detail="database not configured; result not persisted",
+        )
+    result = getattr(repositories, method)(document)
+    return PersistenceInfo(saved=result.saved, detail=result.detail)
+
+
 def require_scenario(metadata: dict, scenario_id: str) -> dict:
     """Return the metadata record for ``scenario_id`` or raise 404.
 

@@ -8,8 +8,9 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, Request
 
-from ..deps import get_bundle, get_metadata, require_scenario
-from ..schemas import RankedCandidate, RecommendRequest, RecommendResponse
+from ..deps import get_bundle, get_metadata, persist_result, require_scenario
+from ..schemas import RecommendRequest, RecommendResponse
+from ...database import recommendation_document
 
 router = APIRouter(tags=["recommendation"])
 
@@ -52,10 +53,10 @@ def recommend(payload: RecommendRequest, request: Request) -> RecommendResponse:
         DEFAULT_OBJECTIVES,
     )
 
-    return RecommendResponse(
-        scenario_id=scenario["scenario_id"],
-        count=len(ranked),
-        objectives=[
+    body = {
+        "scenario_id": scenario["scenario_id"],
+        "count": len(ranked),
+        "objectives": [
             {
                 "target": objective.target,
                 "direction": objective.direction.value,
@@ -63,15 +64,19 @@ def recommend(payload: RecommendRequest, request: Request) -> RecommendResponse:
             }
             for objective in DEFAULT_OBJECTIVES
         ],
-        ranking=[
-            RankedCandidate(
-                design_id=rec.design_id,
-                rank=rec.rank,
-                recommendation_score=rec.recommendation_score,
-                components=rec.components,
-                primary_predictions=rec.primary_predictions,
-            )
+        "ranking": [
+            {
+                "design_id": rec.design_id,
+                "rank": rec.rank,
+                "recommendation_score": rec.recommendation_score,
+                "components": rec.components,
+                "primary_predictions": rec.primary_predictions,
+            }
             for rec in ranked
         ],
-        provenance=RANKING_PROVENANCE,
+        "provenance": RANKING_PROVENANCE,
+    }
+    persistence = persist_result(
+        state, "save_recommendation", recommendation_document(body)
     )
+    return RecommendResponse(**body, persistence=persistence)

@@ -1,13 +1,16 @@
 """Catalog and ML-vs-physics routes backed by the existing packages.
 
 - ``POST /compare``: the existing ``compare_prediction_with_physics``, which
-  runs the same design through the ML surrogate and the real thermal engine.
-- ``GET /scenarios``: the NASA POWER scenario catalog recorded in the dataset
-  metadata during dataset generation.
-- ``GET /designs``: the shelter design catalog represented in the existing
-  ML dataset.
+  runs the same design through the ML surrogate and the real thermal engine;
+  the result is persisted best-effort to the ``comparisons`` collection.
+- ``GET /scenarios``: the NASA POWER scenario catalog stored in MongoDB by
+  the seed command (origin: dataset metadata, no synthetic weather).
+- ``GET /designs``: the shelter design catalog stored in MongoDB by the seed
+  command (origin: the existing ML dataset, no invented designs).
 
-No weather is fetched or invented here and no design is created here.
+When MongoDB is not configured, the catalog endpoints answer with a clear
+503 and the write endpoints still compute and flag the result as not
+persisted.
 """
 from __future__ import annotations
 
@@ -17,6 +20,8 @@ from ..deps import (
     get_bundle,
     get_dataset,
     get_metadata,
+    get_repositories,
+    persist_result,
     require_design_id,
     require_scenario,
 )
@@ -29,6 +34,7 @@ from ..schemas import (
     ScenarioSummary,
     ScenariosResponse,
 )
+from ...database import comparison_document
 
 router = APIRouter(tags=["simulation"])
 
@@ -59,27 +65,44 @@ def compare(payload: CompareRequest, request: Request) -> CompareResponse:
         # client-visible errors from the existing functions.
         raise HTTPException(status_code=503, detail=str(exc)) from exc
 
+    body = {
+        "design_id": result["design_id"],
+        "scenario_id": scenario["scenario_id"],
+        "compared_targets": list(result["compared_targets"]),
+        "rows": result["rows"],
+        "provenance": result["provenance"],
+    }
+    persistence = persist_result(
+        state, "save_comparison", comparison_document(body)
+    )
     return CompareResponse(
-        design_id=result["design_id"],
-        scenario_id=scenario["scenario_id"],
-        compared_targets=list(result["compared_targets"]),
-        rows=[ComparisonRow(**row) for row in result["rows"]],
-        provenance=result["provenance"],
+        compared_targets=body["compared_targets"],
+        rows=[ComparisonRow(**row) for row in body["rows"]],
+        **{key: body[key] for key in ("design_id", "scenario_id", "provenance")},
+        persistence=persistence,
     )
 
 
 @router.get("/scenarios", response_model=ScenariosResponse)
 def scenarios(request: Request) -> ScenariosResponse:
-    metadata = get_metadata(request)
-    nasa = metadata.get("nasa_power", {})
-    used = metadata.get("weather_scenarios", {}).get("used", [])
+    repositories = get_repositories(request)
+    documents = repositories.weather_scenarios.list()
+    if not documents:
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "the weather_scenarios collection is empty; seed it with "
+                "`python -m building_hvac_twin.database.seed`"
+            ),
+        )
+    first = documents[0]
     return ScenariosResponse(
-        count=len(used),
-        location_name=str(nasa.get("location_name", "")),
-        latitude=float(nasa.get("latitude", 0.0)),
-        longitude=float(nasa.get("longitude", 0.0)),
-        nasa_power_source=str(nasa.get("source", "NASA POWER")),
-        scenarios=[ScenarioSummary(**entry) for entry in used],
+        count=len(documents),
+        location_name=str(first.get("location_name") or ""),
+        latitude=float(first.get("latitude") or 0.0),
+        longitude=float(first.get("longitude") or 0.0),
+        nasa_power_source=str(first.get("nasa_power_source") or "NASA POWER"),
+        scenarios=[ScenarioSummary(**document) for document in documents],
     )
 
 
@@ -87,31 +110,31 @@ def scenarios(request: Request) -> ScenariosResponse:
 def designs(
     request: Request,
     limit: int | None = None,
+    offset: int = 0,
 ) -> DesignsResponse:
-    from ...shelter.ml_dataset import DESIGN_PARAMETER_COLUMNS
-
-    dataset = get_dataset(request)
-    # Design parameters are constant across the scenario rows of a design;
-    # take the first row per design_id to describe it.
-    first_rows = dataset.drop_duplicates(subset="design_id", keep="first")
-    first_rows = first_rows.sort_values("design_id")
-    if limit is not None:
-        if limit < 1:
-            raise HTTPException(
-                status_code=422, detail="limit must be a positive integer"
-            )
-        first_rows = first_rows.head(limit)
-    summaries = []
-    for row in first_rows.itertuples(index=False):
-        record = row._asdict()
-        summaries.append(
-            DesignSummary(
-                design_id=str(record["design_id"]),
-                design_parameters={
-                    column: record[column]
-                    for column in DESIGN_PARAMETER_COLUMNS
-                    if column in record
-                },
-            )
+    if limit is not None and limit < 1:
+        raise HTTPException(
+            status_code=422, detail="limit must be a positive integer"
         )
+    if offset < 0:
+        raise HTTPException(
+            status_code=422, detail="offset must be nonnegative"
+        )
+    repositories = get_repositories(request)
+    if repositories.designs.count() == 0:
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "the designs collection is empty; seed it with "
+                "`python -m building_hvac_twin.database.seed`"
+            ),
+        )
+    documents = repositories.designs.list(limit=limit, offset=offset)
+    summaries = [
+        DesignSummary(
+            design_id=str(document["design_id"]),
+            design_parameters=document.get("design_parameters", {}),
+        )
+        for document in documents
+    ]
     return DesignsResponse(count=len(summaries), designs=summaries)

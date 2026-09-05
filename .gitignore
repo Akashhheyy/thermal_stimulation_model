@@ -9,3 +9,8 @@ dist/
 outputs/*
 !outputs/README.md
 models/
+
+# Local environment files (never commit credentials)
+.env
+.env.local
+

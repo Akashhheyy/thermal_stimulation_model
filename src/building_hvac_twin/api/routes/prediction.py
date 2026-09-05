@@ -7,8 +7,9 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, Request
 
-from ..deps import get_bundle, get_dataset, get_metadata, require_design_id, require_scenario
+from ..deps import get_bundle, get_dataset, get_metadata, persist_result, require_design_id, require_scenario
 from ..schemas import PHYSICAL_TARGETS, PredictRequest, PredictResponse
+from ...database import prediction_document
 from ...recommendation import predict_design
 
 router = APIRouter(tags=["prediction"])
@@ -38,6 +39,7 @@ def predict(payload: PredictRequest, request: Request) -> PredictResponse:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
 
     result = outcome.to_dict()
+    persistence = persist_result(state, "save_prediction", prediction_document(result))
     return PredictResponse(
         design_id=result["design_id"],
         scenario_id=result["weather_scenario_id"],
@@ -48,4 +50,5 @@ def predict(payload: PredictRequest, request: Request) -> PredictResponse:
         out_of_bounds=result["out_of_bounds"],
         provenance=result["provenance"],
         artifact_info=result["artifact_info"],
+        persistence=persistence,
     )

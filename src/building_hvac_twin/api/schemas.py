@@ -21,6 +21,8 @@ from ..recommendation.schemas import (
 
 __all__ = [
     "HealthResponse",
+    "DatabaseStatus",
+    "PersistenceInfo",
     "PredictRequest",
     "PredictResponse",
     "RecommendRequest",
@@ -41,12 +43,34 @@ NASA_PROVENANCE = NASA_PROVENANCE_STATEMENT
 SURROGATE_DISCLAIMER = SURROGATE_MODEL_DISCLAIMER
 
 
+class DatabaseStatus(BaseModel):
+    """Simple database connectivity report; never exposes the URI."""
+
+    configured: bool
+    connected: bool
+    database_name: str | None = None
+
+
 class HealthResponse(BaseModel):
-    """Liveness plus a minimal artifact inventory."""
+    """Liveness plus a minimal artifact inventory and database status."""
 
     status: str
     targets_loaded: int
     models_loaded: int
+    database: DatabaseStatus
+
+
+class PersistenceInfo(BaseModel):
+    """Honest report of a best-effort persistence attempt.
+
+    ``saved`` is False with a human-readable ``detail`` when the database is
+    not configured or rejected the write; the computation result itself is
+    always complete and unaffected.
+    """
+
+    saved: bool
+    detail: str | None = None
+
 
 
 class PredictRequest(BaseModel):
@@ -76,6 +100,7 @@ class PredictResponse(BaseModel):
     nasa_provenance_statement: str = NASA_PROVENANCE
     surrogate_model_disclaimer: str = SURROGATE_DISCLAIMER
     artifact_info: dict[str, Any]
+    persistence: PersistenceInfo
 
 
 class RecommendRequest(BaseModel):
@@ -117,6 +142,7 @@ class RecommendResponse(BaseModel):
     provenance: str
     nasa_provenance_statement: str = NASA_PROVENANCE
     surrogate_model_disclaimer: str = SURROGATE_DISCLAIMER
+    persistence: PersistenceInfo
 
 
 class CompareRequest(BaseModel):
@@ -153,6 +179,7 @@ class CompareResponse(BaseModel):
     provenance: str
     nasa_provenance_statement: str = NASA_PROVENANCE
     surrogate_model_disclaimer: str = SURROGATE_DISCLAIMER
+    persistence: PersistenceInfo
 
 
 class ScenarioSummary(BaseModel):

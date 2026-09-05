@@ -25,7 +25,7 @@ from typing import AsyncIterator
 import pandas as pd
 from fastapi import FastAPI
 
-from ..database import MongoSettings, build_repositories, connect, read_env_file
+from ..database import build_repositories, connect, settings_from_env
 from ..recommendation import (
     DEFAULT_METRICS_REPORT,
     DEFAULT_MODELS_DIR,
@@ -62,17 +62,13 @@ def _resolve_path(env_var: str, default: Path) -> Path:
 def _build_repositories_from_env():
     """Connect to MongoDB when MONGODB_URI is configured, else return None.
 
-    A simple KEY=VALUE ``.env`` file next to the working directory is read
-    when present (no python-dotenv dependency); real environment variables
-    win.  Connection problems surface later as clear errors on the
-    database-backed endpoints, never as fabricated catalog data.
+    Precedence (explicit arguments are not used here): environment variables
+    first, then ``.env`` values, all handled by ``settings_from_env`` so the
+    API and the seed command share one configuration implementation.
+    Connection problems surface later as clear errors on the database-backed
+    endpoints, never as fabricated catalog data.
     """
-    env_file = read_env_file(Path.cwd() / ".env")
-    uri = os.environ.get("MONGODB_URI") or env_file.get("MONGODB_URI")
-    database_name = os.environ.get("MONGODB_DATABASE") or env_file.get(
-        "MONGODB_DATABASE"
-    )
-    settings = MongoSettings(uri=uri, database_name=database_name)
+    settings = settings_from_env()
     if not settings.configured:
         return None
     client, database = connect(settings)

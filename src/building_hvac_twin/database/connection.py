@@ -4,9 +4,10 @@ Configuration comes exclusively from environment variables so no credentials
 are ever hard-coded:
 
 - ``MONGODB_URI``: for example ``mongodb://localhost:27017`` (or with
-  credentials ``mongodb://user:password@localhost:27017``).  When unset the
-  application runs without a database and database-backed endpoints answer
-  with a clear error instead of fake data.
+  credentials ``mongodb://user:password@localhost:27017``).  When unset (in
+  the environment and in a ``.env`` file) the application runs without a
+  database and database-backed endpoints answer with a clear error instead
+  of fake data.  There is never a hardcoded default URI.
 - ``MONGODB_DATABASE``: database name, default ``building_energy_hvac_twin``.
 
 MongoDB is application/persistence storage only.  The ML dataset CSV, the
@@ -46,19 +47,51 @@ def settings_from_env(
     uri: str | None = None,
     database_name: str | None = None,
 ) -> MongoSettings:
-    """Build settings from explicit values or the environment.
+    """Build settings with precedence: arguments > environment > .env file.
 
-    Explicit arguments win over environment variables; the database name has
-    a documented default while the URI never does (no defaults credentials).
+    - Explicit arguments always win (used by the seed CLI ``--uri`` etc.).
+    - Existing process environment variables come next.
+    - ``.env`` values are the fallback; the repository-root ``.env`` is read
+      first and a ``.env`` in the current working directory (if any) wins
+      over it.
+    - ``MONGODB_DATABASE`` finally falls back to ``DEFAULT_DATABASE_NAME``.
+    - ``MONGODB_URI`` never gets a hardcoded default: if nothing anywhere
+      provides it, the settings simply report ``configured=False`` and the
+      application runs without a database.
+
+    Values are never printed, logged or otherwise exposed by this module.
     """
-    return MongoSettings(
-        uri=uri if uri is not None else os.environ.get("MONGODB_URI"),
-        database_name=(
-            database_name
-            if database_name is not None
-            else os.environ.get("MONGODB_DATABASE", DEFAULT_DATABASE_NAME)
-        ),
+    dotenv = _dotenv_values()
+    resolved_uri = (
+        uri
+        if uri is not None
+        else (os.environ.get("MONGODB_URI") or dotenv.get("MONGODB_URI"))
     )
+    resolved_database_name = (
+        database_name
+        if database_name is not None
+        else (
+            os.environ.get("MONGODB_DATABASE")
+            or dotenv.get("MONGODB_DATABASE")
+            or DEFAULT_DATABASE_NAME
+        )
+    )
+    return MongoSettings(
+        uri=resolved_uri,
+        database_name=resolved_database_name,
+    )
+
+
+# Repository root .env: src/building_hvac_twin/database/connection.py -> parents[3].
+# A module constant so tests can isolate the lookup from the real repository.
+REPO_DOTENV_PATH = Path(__file__).resolve().parents[3] / ".env"
+
+
+def _dotenv_values() -> dict[str, str]:
+    """Merge .env candidates; the current working directory wins."""
+    values = read_env_file(REPO_DOTENV_PATH)
+    values.update(read_env_file(Path.cwd() / ".env"))
+    return values
 
 
 def connect(settings: MongoSettings):
